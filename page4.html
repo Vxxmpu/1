@@ -1,42 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CarShop - Контакты</title>
-    <link rel="stylesheet" href="page4.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AutoMarket — Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .gallery-hero {
+      margin: .75rem 0 1rem;
+      padding: .9rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: var(--surface-shadow);
+    }
+
+    .gallery-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 180px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: var(--surface-shadow);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .gallery-item img {
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      transition: transform .4s ease;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left:0;right:0;bottom:0;
+      padding:.6rem;
+      background: linear-gradient(0deg, rgba(2,6,23,0.6), transparent);
+      color: #fff;
+      transform:translateY(100%);
+      transition: transform .28s ease;
+      font-weight:700;
+      font-size:.95rem;
+    }
+
+    .gallery-item:hover img { transform: scale(1.07); }
+    .gallery-item:hover .gallery-caption { transform: translateY(0%); }
+
+    @media (max-width: 880px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>CarShop</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="page2.html">Каталог</a></li>
-                <li><a href="page3.html">О компании</a></li>
-                <li><a href="page4.html">Контакты</a></li>
-                <li><a href="page5.html">Отзывы</a></li>
-                <li><a href="page6.html">Акции</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <h2>Наши контакты</h2>
-        <p><strong>Адрес:</strong> г. Астана, ул. Автомобильная, 25</p>
-        <p><strong>Телефон:</strong> +7 (777) 123-45-67</p>
-        <p><strong>Email:</strong> info@carshop.kz</p>
 
-        <h3>Форма обратной связи</h3>
-        <form>
-            <input type="text" placeholder="Ваше имя" required><br><br>
-            <input type="email" placeholder="Ваш email" required><br><br>
-            <textarea placeholder="Ваше сообщение" rows="5"></textarea><br><br>
-            <button type="submit">Отправить</button>
-        </form>
-    </main>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="AutoMarket home">
+        <img src="logo.jpeg" alt="AutoMarket logo" class="logo-img" />
+        <span class="logo-text">AutoMarket</span>
+      </a>
 
-    <footer>
-        <p>Команда проекта: Алихан, Нурасыл, Алан</p>
-    </footer>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="page2.html">Inventory</a></li>
+          <li><a href="page3.html">About</a></li>
+          <li><a class="active" href="page4.html">Gallery</a></li>
+          <li><a href="page5.html">Contact</a></li>
+          <li><a href="page6.html">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:1rem;">
+    <div class="gallery-hero">
+      <h1 style="margin:.1rem 0;">Photo gallery</h1>
+      <p class="lead" style="margin:.25rem 0 .6rem;">High-quality photos from listings — click to open the full image in a new tab.</p>
+    </div>
+
+
+    <section class="gallery-grid" aria-label="Car image gallery">
+      <a class="gallery-item" href="camry.jpg" target="_blank" rel="noopener">
+        <img src="camry.jpg" alt="Toyota Camry — front view">
+        <div class="gallery-caption">Toyota Camry — 2018</div>
+      </a>
+
+      <a class="gallery-item" href="bmw.jpg" target="_blank" rel="noopener">
+        <img src="bmw.jpg" alt="BMW — front view">
+        <div class="gallery-caption">BMW 320i — 2016</div>
+      </a>
+
+      <a class="gallery-item" href="mercedes.jpg" target="_blank" rel="noopener">
+        <img src="mercedes.jpg" alt="Mercedes — front view">
+        <div class="gallery-caption">Mercedes C-Class — 2017</div>
+      </a>
+
+      <a class="gallery-item" href="audi.jpg" target="_blank" rel="noopener">
+        <img src="audi.jpeg" alt="Audi — front view">
+        <div class="gallery-caption">Audi A4 — 2015</div>
+      </a>
+
+      <a class="gallery-item" href="prius.jpg" target="_blank" rel="noopener">
+        <img src="prius.jpeg" alt="Toyota Prius — side view">
+        <div class="gallery-caption">Toyota Prius — 2019</div>
+      </a>
+
+      <a class="gallery-item" href="x5.jpg" target="_blank" rel="noopener">
+        <img src="x5.jpg" alt="BMW X5 — side view">
+        <div class="gallery-caption">BMW X5 — 2014</div>
+      </a>
+
+      <a class="gallery-item" href="camry.jpg" target="_blank" rel="noopener">
+        <img src="camry.jpg" alt="Car photo 7">
+        <div class="gallery-caption">Camry — Interior</div>
+      </a>
+
+      <a class="gallery-item" href="bmw.jpg" target="_blank" rel="noopener">
+        <img src="bmw.jpg" alt="Car photo 8">
+        <div class="gallery-caption">BMW — Interior</div>
+      </a>
+
+      <a class="gallery-item" href="mercedes.jpg" target="_blank" rel="noopener">
+        <img src="mercedes.jpg" alt="Car photo 9">
+        <div class="gallery-caption">Mercedes — Detail</div>
+      </a>
+    </section>
+  </main>
+
+
+  <footer class="site-footer" style="margin-top:1.25rem;">
+    <div class="container footer-inner">
+      <p>© 2025 AutoMarket. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Help</a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>

@@ -1,36 +1,175 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CarShop - О компании</title>
-    <link rel="stylesheet" href="page3.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AutoMarket — About (Grid layout)</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    
+    .grid-page {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      gap: 1rem;
+      min-height: calc(100vh - 72px);
+      align-items: start;
+      padding-top: .75rem;
+    }
+
+    .grid-header { grid-area: header; background:transparent; padding:0; }
+    .grid-sidebar { grid-area: sidebar; }
+    .grid-main { grid-area: main; }
+    .grid-footer { grid-area: footer; }
+
+    .sidebar-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: var(--surface-shadow);
+    }
+    .sidebar-card h3 { margin-top: 0; }
+
+    .about-hero {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: var(--surface-shadow);
+      margin-bottom:1rem;
+    }
+
+    @media (max-width: 880px) {
+      .grid-page {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+          "header"
+          "main"
+          "sidebar"
+          "footer";
+      }
+      .grid-sidebar { order: 3; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>CarShop</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="page2.html">Каталог</a></li>
-                <li><a href="page3.html">О компании</a></li>
-                <li><a href="page4.html">Контакты</a></li>
-                <li><a href="page5.html">Отзывы</a></li>
-                <li><a href="page6.html">Акции</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <h2>О компании</h2>
-        <p>CarShop — это онлайн-магазин по продаже автомобилей с выгодными ценами и большим выбором. 
-        Мы сотрудничаем с ведущими автопроизводителями и предлагаем клиентам только проверенные машины.</p>
 
-        <p>Наша миссия — сделать покупку автомобиля простой, удобной и доступной. 
-        Вы можете выбрать авто онлайн, оформить заказ и получить машину с доставкой.</p>
-    </main>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="AutoMarket home">
+        <img src="logo.jpeg" alt="AutoMarket logo" class="logo-img" />
+        <span class="logo-text">AutoMarket</span>
+      </a>
 
-    <footer>
-        <p>Команда проекта: Алихан, Нурасыл, Алан</p>
-    </footer>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="page2.html">Inventory</a></li>
+          <li><a class="active" href="page3.html">About</a></li>
+          <li><a href="page4.html">Gallery</a></li>
+          <li><a href="page5.html">Contact</a></li>
+          <li><a href="page6.html">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <div class="container grid-page" role="main">
+
+    <div class="grid-header">
+      <div class="about-hero">
+        <h1 style="margin:.25rem 0;">About AutoMarket</h1>
+        <p class="lead">We connect buyers and sellers across Kazakhstan. Our mission is to make car shopping transparent, safe, and simple.</p>
+      </div>
+    </div>
+
+
+    <aside class="grid-sidebar">
+      <div class="sidebar-card" aria-labelledby="sidebar-title">
+        <h3 id="sidebar-title">Quick Filters</h3>
+        <form>
+          <label style="display:block;margin:.35rem 0 0.25rem;font-weight:700;">Make</label>
+          <select style="width:100%;padding:.5rem;border-radius:8px;border:1px solid rgba(15,23,42,0.06);">
+            <option>Toyota</option><option>BMW</option><option>Mercedes</option><option>Audi</option>
+          </select>
+
+          <label style="display:block;margin:.6rem 0 0.25rem;font-weight:700;">Price</label>
+          <input type="range" min="0" max="20000000" value="10000000" style="width:100%">
+
+          <p style="margin:.6rem 0 0;color:var(--muted);font-size:.95rem;">
+            Use filters to quickly narrow your search. Click <strong>Browse Inventory</strong> to see results.
+          </p>
+
+          <a class="btn btn-primary" href="page2.html" style="margin-top:.7rem;display:inline-block;">Browse Inventory</a>
+        </form>
+      </div>
+
+      <div style="height:1rem;"></div>
+
+      <div class="sidebar-card">
+        <h4>Contact us</h4>
+        <p style="margin:.25rem 0;color:var(--muted);">Need help? Call: <strong>+7 (700) 123-4567</strong></p>
+        <a class="btn btn-outline" href="page5.html">Get support</a>
+      </div>
+    </aside>
+
+
+    <section class="grid-main">
+      <article class="about-hero">
+        <h2>Our Story</h2>
+        <p>
+          AutoMarket was founded to give buyers clean, verified listings and sellers an easy place to list their vehicles.
+          We verify documents, provide quality photos, and support secure communication between parties.
+        </p>
+
+        <h3 style="margin-top:1rem;">How it works</h3>
+        <ol style="margin: .4rem 0 0 1.1rem;">
+          <li>Search or filter the inventory.</li>
+          <li>Open a listing and view detailed photos.</li>
+          <li>Contact the seller via secure messaging.</li>
+          <li>Arrange inspection and finalize the sale.</li>
+        </ol>
+      </article>
+
+      <article class="about-hero">
+        <h2>Team & values</h2>
+        <p>We value transparency, safety, and excellent user experience. Our small team works remotely across Kazakhstan to improve listings daily.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:.8rem;">
+          <div style="background:white;border-radius:10px;padding:.7rem;box-shadow:var(--surface-shadow);text-align:center;">
+            <strong>Verified</strong><div style="color:var(--muted);font-size:.9rem;">Identity checks</div>
+          </div>
+          <div style="background:white;border-radius:10px;padding:.7rem;box-shadow:var(--surface-shadow);text-align:center;">
+            <strong>Quality</strong><div style="color:var(--muted);font-size:.9rem;">Pro photos</div>
+          </div>
+          <div style="background:white;border-radius:10px;padding:.7rem;box-shadow:var(--surface-shadow);text-align:center;">
+            <strong>Support</strong><div style="color:var(--muted);font-size:.9rem;">24/7 help</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+
+    <div class="grid-footer">
+      <div class="site-footer" style="margin-top:0;">
+        <div class="container footer-inner" style="padding-left:0;padding-right:0;">
+          <p>© 2025 AutoMarket. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Help</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </body>
 </html>

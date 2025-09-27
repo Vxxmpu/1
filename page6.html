@@ -1,45 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CarShop - Акции</title>
-    <link rel="stylesheet" href="page6.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AutoMarket — Blog</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .blog-hero { margin:.75rem 0; padding:.9rem; background:white; border-radius:12px; box-shadow:var(--surface-shadow); }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 1rem;
+      align-items:start;
+    }
+
+    .posts {
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+    }
+
+    .post {
+      display:flex;
+      gap:.9rem;
+      background:white;
+      padding:.7rem;
+      border-radius:12px;
+      box-shadow:var(--surface-shadow);
+      align-items:flex-start;
+    }
+    .post img { width:120px; height:80px; object-fit:cover; border-radius:8px; flex-shrink:0; }
+
+    .post h3 { margin:0 0 .25rem; font-size:1rem; }
+    .post p { margin:0; color:var(--muted); }
+
+    .sidebar-card { background:white; padding:1rem; border-radius:12px; box-shadow:var(--surface-shadow); }
+
+    @media (max-width: 880px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .post { flex-direction:column; }
+      .post img { width:100%; height:160px; border-radius:10px; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>CarShop</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="page2.html">Каталог</a></li>
-                <li><a href="page3.html">О компании</a></li>
-                <li><a href="page4.html">Контакты</a></li>
-                <li><a href="page5.html">Отзывы</a></li>
-                <li><a href="page6.html">Акции</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <h2>Специальные предложения</h2>
-        <div class="offers">
-            <div class="offer">
-                <h3>Скидка 10% на Toyota Camry</h3>
-                <p>Только до конца месяца!</p>
-            </div>
-            <div class="offer">
-                <h3>BMW X5 — рассрочка 0%</h3>
-                <p>Покупай сейчас, плати потом.</p>
-            </div>
-            <div class="offer">
-                <h3>Подарок при покупке Mercedes E-Class</h3>
-                <p>Комплект зимней резины бесплатно.</p>
-            </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="AutoMarket home">
+        <img src="logo.jpeg" alt="AutoMarket logo" class="logo-img" />
+        <span class="logo-text">AutoMarket</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="page2.html">Inventory</a></li>
+          <li><a href="page3.html">About</a></li>
+          <li><a href="page4.html">Gallery</a></li>
+          <li><a href="page5.html">Contact</a></li>
+          <li><a class="active" href="page6.html">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:1rem;">
+    <div class="blog-hero">
+      <h1 style="margin:.1rem 0;">AutoMarket Blog</h1>
+      <p class="lead" style="margin:.25rem 0 .6rem;">News, tips, and guides about buying and selling cars in Kazakhstan.</p>
+    </div>
+
+    <div class="blog-grid">
+      <section class="posts" aria-label="Latest posts">
+
+        <article class="post">
+          <img src="camry.jpg" alt="Camry review">
+          <div>
+            <h3>Top 5 family sedans for city driving (2025)</h3>
+            <p class="muted">A quick guide to compact, efficient, and comfortable sedans perfect for Astana roads. • <em>Jun 4, 2025</em></p>
+            <div style="margin-top:.5rem;"><a class="btn btn-outline" href="#">Read</a></div>
+          </div>
+        </article>
+
+
+        <article class="post">
+          <img src="bmw.jpg" alt="BMW maintenance tips">
+          <div>
+            <h3>Maintaining your BMW: affordable tips</h3>
+            <p class="muted">Simple maintenance tasks you can do at home to keep performance high and costs low. • <em>May 20, 2025</em></p>
+            <div style="margin-top:.5rem;"><a class="btn btn-outline" href="#">Read</a></div>
+          </div>
+        </article>
+
+
+        <article class="post">
+          <img src="mercedes.jpg" alt="Mercedes buying advice">
+          <div>
+            <h3>What to check when buying a used Mercedes</h3>
+            <p class="muted">Essential checklist: service history, leaks, electronics, and more. • <em>Apr 11, 2025</em></p>
+            <div style="margin-top:.5rem;"><a class="btn btn-outline" href="#">Read</a></div>
+          </div>
+        </article>
+      </section>
+
+
+      <aside class="sidebar-card" aria-labelledby="sidebar-blog">
+        <h3 id="sidebar-blog">Popular topics</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem;">
+          <li><a href="#" class="nav-link">Buying guides</a></li>
+          <li><a href="#" class="nav-link">Maintenance tips</a></li>
+          <li><a href="#" class="nav-link">Market trends</a></li>
+          <li><a href="#" class="nav-link">Safety checks</a></li>
+        </ul>
+
+        <div style="height: .8rem;"></div>
+
+        <div style="margin-top:.6rem;">
+          <h4 style="margin:0 0 .4rem;">Subscribe</h4>
+          <p style="margin:0 0 .4rem;color:var(--muted);">Get new posts by email.</p>
+          <form action="#" method="post">
+            <input type="email" placeholder="you@example.com" style="width:100%;padding:.6rem;border-radius:8px;border:1px solid rgba(15,23,42,0.06);margin-bottom:.5rem;" required>
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
         </div>
-    </main>
+      </aside>
+    </div>
+  </main>
 
-    <footer>
-        <p>Команда проекта: Алихан, Нурасыл, Алан</p>
-    </footer>
+
+  <footer class="site-footer" style="margin-top:1.25rem;">
+    <div class="container footer-inner">
+      <p>© 2025 AutoMarket. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Help</a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
